@@ -10,7 +10,7 @@ import tweepy
 import yaml
 from tweepy import TweepError
 from xml.sax.saxutils import escape
-from utils import screen_names, api_neighbours_ids, fetch_neighbours, make_adjacency_matrix
+from utils.utils import screen_names, api_neighbours_ids, fetch_neighbours, make_adjacency_matrix
 from config import PATHS
 
 # Read keys from file that contains
@@ -72,7 +72,7 @@ if __name__ == '__main__':
         ego = api.get_user(user).id   
         with open(os.path.join(PATHS['in'], str(ego)), 'r') as f:
             ego_neighbours = [int(id) for line in csv.reader(f) for id in line]
-        make_adjacency_matrix(ego_neighbours, direction = "in", file= user + + '_in.csv')
+        make_adjacency_matrix(ego_neighbours, direction = "in", file= user + '_in.csv')
 
     if function == 'followees_graph':    
         #graph_ego(screen_name, direction = "out")

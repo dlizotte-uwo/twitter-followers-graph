@@ -68,7 +68,7 @@ def screen_names(users, api):
 			users_batch = api.lookup_users(users[batch_start:batch_end])
 			for u in users_batch:
 				print(u.screen_name, u.id)
-				with open(os.path.join('screen_names', str(u.id)), 'w') as f:
+				with open(os.path.join('data/fetched/screen_names', str(u.id)), 'w') as f:
 					f.write(u.screen_name)
 		except TweepError as e:
 			print(e)
