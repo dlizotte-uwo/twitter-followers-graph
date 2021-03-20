@@ -31,7 +31,8 @@ def ego_neighbourhood(ego_screenname, direction = "in", force = False):
     """
     ego = api.get_user(ego_screenname).id
     neighbours = api_neighbours_ids(ego, api, direction= direction)
-    users = neighbours.append(ego)
+    # Include self in generated graph
+    neighbours.append(ego)
 
     # Fetch neighbours of each ego neighbour
     for i, userid in enumerate(neighbours):
